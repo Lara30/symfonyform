@@ -1,0 +1,7 @@
+nh_exercice:
+    resource: "@NHExerciceBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

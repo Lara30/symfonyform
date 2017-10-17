@@ -1,0 +1,4 @@
+services:
+#    nh_exercice.example:
+#        class: NH\ExerciceBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

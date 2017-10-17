@@ -1,0 +1,14 @@
+nh_exercice_homepage:
+    path:     /
+    defaults:
+        { _controller: NHExerciceBundle:Default:index }
+
+nh_exercice_new:
+    path:     /new
+    defaults:
+        { _controller: NHExerciceBundle:Default:new }
+
+nh_exercice_valid:
+    path:    /valid
+    defaults:
+        { _controller: NHExerciceBundle:Default:valid }
