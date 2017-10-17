@@ -33,21 +33,32 @@ class DefaultController extends Controller
             ->add('save', SubmitType::class, array('label' => "Creer un article"))
             ->getForm();
 
-        $form->handleRequest($request);
+        if ($request->isMethod('POST')){
+            $form->handleRequest($request);
 
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($task);
+                $em->flush();
+
+                $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée');
+                return $this->redirectToRoute('nh_exercice_valid', array(
+                    'id' => $task->getId()));
+            }
+        }
 //        if ($form->isSubmitted() && $form->isValid()) {
 //            $task = $form->getData();
 //
 //            return $this->redirectToRoute('');
+        return $this->render('NHExerciceBundle:Default:new.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+}
 
-            return $this->render('NHExerciceBundle:Default:new.html.twig', array(
-                'form' => $form->createView(),
-            ));
-        }
 
-    public function retourAction($id)
+  /*  public function retourAction($id)
     {
         return $this->render('NHExerciceBundle:Default:retour.html.twig');
-    }
-    }
+    }*/
 

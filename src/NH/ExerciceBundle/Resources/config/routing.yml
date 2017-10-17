@@ -9,6 +9,7 @@ nh_exercice_new:
         { _controller: NHExerciceBundle:Default:new }
 
 nh_exercice_valid:
-    path:    /valid
+    path:    /valid/{id}
     defaults:
         { _controller: NHExerciceBundle:Default:valid }
+
