@@ -3,7 +3,7 @@ nh_exercice_homepage:
     defaults:
         { _controller: NHExerciceBundle:Default:index }
 
-nh_exercice_new:
+nh_exercice_formulaire:
     path:     /formulaire
     defaults:
         { _controller: NHExerciceBundle:Default:formulaire }
@@ -13,3 +13,9 @@ nh_exercice_valid:
     defaults:
         { _controller: NHExerciceBundle:Default:valid }
 
+nh_exercice_edit:
+    path:    /edit/{id}
+    defaults:
+        _controller: NHExerciceBundle:Default:edit
+    requirements:
+        id: \d+

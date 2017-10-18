@@ -1,0 +1,27 @@
+{# src/NH/ExerciceBundle/Resources/views/Default/edit.html.twig#}
+
+{% extends "NHExerciceBundle::base.html.twig" %}
+
+{% block title %}
+
+  <h2>Modifier l'annonce - {{ parent() }}</h2>
+{% endblock %}
+
+{% block nhexercice_body %}
+    <h2>Modifier un article</h2>
+    {{ include("NHExerciceBundle:Default:formulaire.html.twig") }}
+    <p>Article déjà existant</p>
+
+    <p>
+        <a href="{{ path('nh_exercice_formulaire', {'id':task.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à l'article
+        </a>
+    </p>
+
+    {% block title %}
+        <h2>Modifier l'annonce - {{ parent() }}</h2>
+    {% endblock %}
+
+{% endblock %}
+

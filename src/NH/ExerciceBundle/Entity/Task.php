@@ -1,9 +1,6 @@
 <?php
-
 namespace NH\ExerciceBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Task
  *
@@ -20,36 +17,30 @@ class Task
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255)
      */
     private $image;
-
     /**
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
-
     /**
      * @var string
      *
      * @ORM\Column(name="article", type="text")
      */
     private $task;
-
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
-
-
     /**
      * Get id
      *
@@ -59,7 +50,6 @@ class Task
     {
         return $this->id;
     }
-
     /**
      * Set image
      *
@@ -70,10 +60,8 @@ class Task
     public function setImage($image)
     {
         $this->image = $image;
-
         return $this;
     }
-
     /**
      * Get image
      *
@@ -83,7 +71,6 @@ class Task
     {
         return $this->image;
     }
-
     /**
      * Set titre
      *
@@ -94,10 +81,8 @@ class Task
     public function setTitre($titre)
     {
         $this->titre = $titre;
-
         return $this;
     }
-
     /**
      * Get titre
      *
@@ -107,7 +92,6 @@ class Task
     {
         return $this->titre;
     }
-
     /**
      * Set article
      *
@@ -118,10 +102,8 @@ class Task
     public function setTask($task)
     {
         $this->task = $task;
-
         return $this;
     }
-
     /**
      * Get article
      *
@@ -131,7 +113,6 @@ class Task
     {
         return $this->task;
     }
-
     /**
      * Set date
      *
@@ -142,10 +123,8 @@ class Task
     public function setDate($date)
     {
         $this->date = $date;
-
         return $this;
     }
-
     /**
      * Get date
      *
@@ -156,4 +135,3 @@ class Task
         return $this->date;
     }
 }
-
