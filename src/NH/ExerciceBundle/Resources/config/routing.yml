@@ -4,12 +4,12 @@ nh_exercice_homepage:
         { _controller: NHExerciceBundle:Default:index }
 
 nh_exercice_new:
-    path:     /new
+    path:     /formulaire
     defaults:
-        { _controller: NHExerciceBundle:Default:new }
+        { _controller: NHExerciceBundle:Default:formulaire }
 
 nh_exercice_valid:
-    path:    /valid/{id}
+    path:    /valid
     defaults:
         { _controller: NHExerciceBundle:Default:valid }
 

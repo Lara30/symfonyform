@@ -1,0 +1,14 @@
+{# app/Resources/views/default/new.html.twig #}
+{#{% extends 'base.html.twig' %}#}
+
+{% block body  %}
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+{% endblock %}
+
+<a href="{{ path('nh_exercice_homepage') }}">
+    Retour à la liste des articles
+</a>

@@ -1,2 +1,21 @@
 {# app/Resources/views/default/valid.html.twig #}
-coucou
+{#{% extends 'base.html.twig' %}#}
+<a href="{{ path('nh_exercice_new')}}">
+    Ajouter un article
+</a>
+{% block body  %}
+    <h1>Liste des articles</h1>
+
+{% for task in tasks %}
+
+<span class="css">
+    <p>  Image : {{ task.image }} </p>
+    <p> Titre : {{ task.titre }} </p>
+    <p> Article : {{ task.task }}</p>
+    <p> Date : {{ task.date | date('d-m-Y') }}</p>
+    <hr>
+    </span>
+
+{% endfor %}
+
+{% endblock %}
