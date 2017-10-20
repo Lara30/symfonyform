@@ -33,7 +33,7 @@ class DefaultController extends Controller
 //on utilise la méthode javascript createformbuilder
         $form = $this->createFormBuilder($task)
             //méthodes add pour chaque champ
-            ->add('image', FileType::class, array('label' => "image"))
+            ->add('file', FileType::class, array('label' => "image"))
             ->add('titre', TextType::class, array('label' => "titre"))
             ->add('task', TextareaType::class, array('label' => "article"))
             ->add('date', DateType::class, array('label' => "date"))

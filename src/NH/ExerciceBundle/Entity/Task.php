@@ -1,12 +1,18 @@
 <?php
 namespace NH\ExerciceBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+use NH\ExerciceBundle\Annotation\Uploadable;
+use Symfony\Component\HttpFoundation\File\File;
+
 /**
  * Task
  *
  * @ORM\Table(name="advert")
  * @ORM\Entity(repositoryClass="NH\ExerciceBundle\Repository\AdvertRepository")
+ * @Uploadable()
  */
+
 class Task
 {
     /**
@@ -17,12 +23,27 @@ class Task
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+
+
+//    test de l'image
+
     /**
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255)
      */
     private $image;
+    /**
+     * @var File
+     * @UploadableField(name="image")
+     */
+    private $file;
+
+
+
+
+
     /**
      * @var string
      *
@@ -51,25 +72,18 @@ class Task
         return $this->id;
     }
     /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return Task
+     * @param File $file/null
      */
-    public function setImage($image)
+    public function setFile(File $file)
     {
-        $this->image = $image;
-        return $this;
+        $this->file = $file;
     }
     /**
-     * Get image
-     *
-     * @return string
+     * @return File/null
      */
-    public function getImage()
+    public function getFile()
     {
-        return $this->image;
+        return $this->file;
     }
     /**
      * Set titre
