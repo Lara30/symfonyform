@@ -3,10 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        {#on rajoute le css de bootstrap#}
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        {% block stylesheets %}
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+            {#on rajoute le css de bootstrap#}
+            <link rel="stylesheet" href="{{ asset('dist/css/bootstrap.min.css') }}" />
+            <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('dist/js/bootstrap.min.js') }}"></script>
+        {% endblock %}
+
     </head>
     <body>
         {% block body %}
