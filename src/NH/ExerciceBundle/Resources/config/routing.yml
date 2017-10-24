@@ -13,9 +13,9 @@ nh_exercice_valid:
     defaults:
         { _controller: NHExerciceBundle:Default:valid }
 
-nh_exercice_edit:
-    path:    /edit/{id}
+nh_exercice_suppr:
+    path:    /suppr/{id}
     defaults:
-        _controller: NHExerciceBundle:Default:edit
+        _controller: NHExerciceBundle:Default:suppr
     requirements:
         id: \d+

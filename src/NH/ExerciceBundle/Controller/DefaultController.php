@@ -33,7 +33,7 @@ class DefaultController extends Controller
 //on utilise la méthode javascript createformbuilder
         $form = $this->createFormBuilder($task)
             //méthodes add pour chaque champ
-            ->add('file', FileType::class, array('label' => "image"))
+            ->add('image', FileType::class, array('label' => "image"))
             ->add('titre', TextType::class, array('label' => "titre"))
             ->add('task', TextareaType::class, array('label' => "article"))
             ->add('date', DateType::class, array('label' => "date"))
@@ -45,6 +45,7 @@ class DefaultController extends Controller
         //auquel cas on récupère le formulaire
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
+
 //si le formulaire est soumis on fait appel à doctrine et à entitymangaer
             if ($form->isSubmitted() && $form->isValid()) {
 
@@ -71,30 +72,18 @@ class DefaultController extends Controller
         ));
     }
 
-    public function editAction($id, Request $request)
-    {
-       $em = $this->getDoctrine()->getManager();
-       $advert = $em->getRepository('NHExerciceBundle:Default')->find($id);
 
-       if (null === $task) {
-           throw new NotFoundHttpException("L'annonce d'id ".$id."n'existe pas.");
-       }
-       $form = $this->get('form.factory')->create(DefaultEditType::class, $task);
-       if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-           $em->flush();
-           $request->getSession()->getFalshBag()->add('notice', 'Annonce modifiée.');
-           return $this->redirectToRoute('nh_exercice_valid', array('id' => $task->getId()));
-       }
-       return $this->render('NHExerciceBundle:Default:edit.html.twig', array(
-           'task' => $task,
-           'form' => $form->createView(),
-       ));
+    public function deleteAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $suppr = $em->getRepository('NHExerciceBundle:Default')->find($id);
+
+        if (!$suppr) {
+            throw $this->createNotFoundException('rien de trouvé pour id '.$id);
+        }
+
+        $em->remove($suppr);
+        $em->flush();
+
+        return $this->redirectToRoute('NHExericeBundle:formulaire.html.twig');
     }
 }
-
-
-  /*  public function retourAction($id)
-    {
-        return $this->render('NHExerciceBundle:Default:retour.html.twig');
-    }*/
-

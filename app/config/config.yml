@@ -68,13 +68,3 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
-
-#
-#vich_uploader:
-#    db_driver: orm
-#    mappings:
-#        task:
-#            uri_prefix: /task/
-#            upload_destination: '%kernel.root_dir%/../web/task/'
-##            renommera votre fichier selon un id unique
-#            namer: vich_uploader.namer_uniqid

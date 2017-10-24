@@ -1,4 +1,12 @@
-services:
+#services:
+#    upload.annotation_reader:
+#       class: NH\ExerciceBundle\Annotation\UploadAnnotationReader
+#       arguments: ["@annotations.reader"]
+#    upload.subscriber:
+#      class: NH\ExerciceBundle\Listener\UploadSubscriber
+#      tags:
+#      - { name: doctrine.event_subscriber, connection: default }
+
 #    nh_exercice.example:
 #        class: NH\ExerciceBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
