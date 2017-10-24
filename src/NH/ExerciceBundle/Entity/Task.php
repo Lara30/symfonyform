@@ -49,16 +49,17 @@ class Task
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
+
+
     /**
      * Get id
      *
-     * @return int
+     * @return id $id
      */
     public function getId()
     {
         return $this->id;
     }
-
 
     public function setImage($image)
     {

@@ -23,7 +23,14 @@ class DefaultController extends Controller
         return $this->render('NHExerciceBundle:Default:valid.html.twig', array('tasks' => $task));
     }
 
-    public function formulaireAction(Request $request)
+    public function validAction()
+    {
+//        return $this->render('NHExerciceBundle:Default:index.html.twig');
+        $task = $this->getDoctrine()->getRepository('NHExerciceBundle:Task')->findAll();
+        return $this->render('NHExerciceBundle:Default:valid.html.twig', array('tasks' => $task));
+    }
+
+    public function addAction(Request $request)
     {
         //création de l'entité
         $task = new Task();
@@ -32,6 +39,7 @@ class DefaultController extends Controller
 
 //on utilise la méthode javascript createformbuilder
         $form = $this->createFormBuilder($task)
+
             //méthodes add pour chaque champ
             ->add('image', FileType::class, array('label' => "image"))
             ->add('titre', TextType::class, array('label' => "titre"))
@@ -63,27 +71,21 @@ class DefaultController extends Controller
                     'id' => $task->getId()));
             }
         }
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $task = $form->getData();
-//
-//            return $this->redirectToRoute('');
-        return $this->render('NHExerciceBundle:Default:formulaire.html.twig', array(
+        return $this->render('NHExerciceBundle:Default:add.html.twig', array(
             'form' => $form->createView(),
         ));
     }
 
-
     public function deleteAction($id) {
         $em = $this->getDoctrine()->getManager();
-        $suppr = $em->getRepository('NHExerciceBundle:Default')->find($id);
+        $suppr = $em->getRepository('NHExerciceBundle:Task')->find($id);
 
         if (!$suppr) {
             throw $this->createNotFoundException('rien de trouvé pour id '.$id);
         }
-
         $em->remove($suppr);
         $em->flush();
-
-        return $this->redirectToRoute('NHExericeBundle:formulaire.html.twig');
+        return $this->redirectToRoute('nh_exercice_valid', array(
+            'id' => $suppr->getId()));
     }
 }

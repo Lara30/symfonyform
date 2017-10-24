@@ -3,19 +3,18 @@ nh_exercice_homepage:
     defaults:
         { _controller: NHExerciceBundle:Default:index }
 
-nh_exercice_formulaire:
-    path:     /formulaire
+nh_exercice_add:
+    path:     /add
     defaults:
-        { _controller: NHExerciceBundle:Default:formulaire }
+        { _controller: NHExerciceBundle:Default:add }
 
 nh_exercice_valid:
     path:    /valid
     defaults:
         { _controller: NHExerciceBundle:Default:valid }
 
-nh_exercice_suppr:
-    path:    /suppr/{id}
+nh_exercice_delete:
+    path:    /delete/{id}
     defaults:
-        _controller: NHExerciceBundle:Default:suppr
-    requirements:
-        id: \d+
+        { _controller: NHExerciceBundle:Default:delete }
+

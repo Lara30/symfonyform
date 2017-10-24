@@ -1,6 +1,6 @@
 {# app/Resources/views/default/valid.html.twig #}
 {#{% extends 'base.html.twig' %}#}
-<a href="{{ path('nh_exercice_formulaire')}}">
+<a href="{{ path('nh_exercice_add')}}">
     Ajouter un article
 </a>
 {% block body  %}
@@ -18,6 +18,9 @@
     <p> Article : {{ task.task }}</p>
     <p> Date : {{ task.date | date('d-m-Y') }}</p>
     <hr>
+    <a href="{{ path('nh_exercice_delete', {'id' : task.id})}}">
+    Supprimer un article</a>
+
     </span>
 
 {% endfor %}
