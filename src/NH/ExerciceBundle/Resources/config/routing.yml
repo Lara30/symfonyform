@@ -18,3 +18,7 @@ nh_exercice_delete:
     defaults:
         { _controller: NHExerciceBundle:Default:delete }
 
+nh_exercice_edit:
+    path:    /edit/{id}
+    defaults:
+        { _controller: NHExerciceBundle:Default:edit }
