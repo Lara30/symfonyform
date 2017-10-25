@@ -92,14 +92,14 @@ class DefaultController extends Controller
         if (null === $task) {
             throw new NotFoundHttpException("l'annonce d'id ".$id." n'existe pas.");
         }
-        $form = $this->get('form.factory')->create(TaskEditType::class, $task);
+        $form = $this->get('form.factory')->create(TaskType::class, $task);
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             //inutle de persister ici, doctrine connaît déjà
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice', 'Annonce modifiée');
             return $this->redirectToRoute('nh_exercice_add', array('id' => $task->getId()));
         }
-        return $this->render('NHExerciceBundle:Default:edit.html.twig', array(
+        return $this->render('NHExerciceBundle:Default:add.html.twig', array(
             'task' => $task,
             'form' => $form->createView(),
         ));

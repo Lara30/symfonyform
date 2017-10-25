@@ -16,7 +16,7 @@ class TaskType extends AbstractType {
     {
         $builder
         ->add('image', FileType::class, array(
-            'label' => "null"))
+            'label' => "image", 'data_class' => null))
         ->add('titre', TextType::class, array(
             'label' => "titre"))
         ->add('task', TextareaType::class, array(
@@ -25,7 +25,7 @@ class TaskType extends AbstractType {
             'label' => "date"))
 
         ->add('save', SubmitType::class, array(
-            'label' => "Creer un article"))
+            'label' => "ajouter / modifier un article"))
             ;
     }
 
