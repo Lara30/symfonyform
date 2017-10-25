@@ -1,11 +1,11 @@
 {# app/Resources/views/default/valid.html.twig #}
 {#{% extends 'base.html.twig' %}#}
-<a href="{{ path('nh_exercice_add')}}">
-    Ajouter un article
-</a>
 {% block body  %}
 
     <h1>Liste des articles</h1>
+    <a href="{{ path('nh_exercice_add')}}">
+        Ajouter un article
+    </a>
 
 {% for task in tasks %}
 

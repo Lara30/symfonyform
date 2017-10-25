@@ -1,5 +1,5 @@
-<!--
-/*namespace NH\ExerciceBundle\Form;
+<?php
+namespace NH\ExerciceBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,9 +17,13 @@ class TaskEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->remove('date');
+        $builder->add('savetest', SubmitType::class, array(
+                'label' => "modifier un article"));
+        $builder->remove('save');
+    }
+
+    public function getParent()
+    {
         return TaskType::class;
     }
 }
-
-*/
--->

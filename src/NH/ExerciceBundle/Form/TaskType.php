@@ -25,7 +25,7 @@ class TaskType extends AbstractType {
             'label' => "date"))
 
         ->add('save', SubmitType::class, array(
-            'label' => "ajouter / modifier un article"))
+            'label' => "créer un article"))
             ;
     }
 

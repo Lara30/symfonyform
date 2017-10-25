@@ -92,7 +92,7 @@ class DefaultController extends Controller
         if (null === $task) {
             throw new NotFoundHttpException("l'annonce d'id ".$id." n'existe pas.");
         }
-        $form = $this->get('form.factory')->create(TaskType::class, $task);
+        $form = $this->get('form.factory')->create(TaskEditType::class, $task);
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             //inutle de persister ici, doctrine connaît déjà
             $em->flush();
